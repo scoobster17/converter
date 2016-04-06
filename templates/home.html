@@ -2,4 +2,14 @@
 	<h1>Converter</h1>
 	<p>Easily convert different values. Please select your conversion below:</p>
 	<p>{{ test }}</p>
+	<ul>
+		<li ng-repeat="conversionType in conversionTypes">
+			{{ conversionType.name }}
+			<ul>
+				<li ng-repeat="conversionSubType in converstionSubType.subTypes">
+					{{ conversionSubType.name }}
+				</li>
+			</ul>
+		</li>
+	</ul>
 </section>
