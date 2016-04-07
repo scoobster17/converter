@@ -1,11 +1,18 @@
 <section>
-	<a href="#/">Back</a>
-	<h1>{{ conversionId }} Conversion</h1>
-	<p>{{ test }}</p>
+	<h1>{{conversionDetails.name + title}}</h1>
 	<form>
-		<label>Please enter a value to convert:</label>
-		<input type="text" ng-model="conversion.value" />
-		<p ng-show="conversion.value">{{ conversion.value * 2 }}</p>
+		<div class="form-group">
+			<label>Convert <strong>from</strong>:</label>
+			<select ng-model="conversion.from" ng-init="conversion.from = '-1'">
+				<option value="-1">Please select</option>
+				<option ng-repeat="subType in conversionDetails.subTypes">{{ subType.unit }}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Please enter a value to convert:</label>
+			<input type="text" ng-model="conversion.value" />
+		</div>
+		<!-- <p ng-show="conversion.value && conversion.from !== -1">{{ conversion.from '+' conversion.to '=' conversion.value * 2 }}</p> -->
 	</form>
-	<a href="#/">Back</a>
+	<a href="#/" class="btn btn-default">Back</a>
 </section>

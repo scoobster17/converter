@@ -32,9 +32,8 @@
 
 	.controller('homeCtrl', function($scope) {
 
-		$scope.title = 'Converter';
-		$scope.introText = 'Easily convert values between different units of their type, with an instant response.';
-
+		// data
+		$scope.conversionTypes = conversions;
 		$scope.usage = {
 			heading: 'Usage',
 			detail: 'No page refreshes, no waiting around. Simply follow these four steps:',
@@ -58,28 +57,41 @@
 			]
 		};
 
-		$scope.conversionTypes = conversions;
+		// page details
+		$scope.title = 'Converter';
+		$scope.introText = 'Easily convert values between different units of their type, with an instant response.';
 
 	})
 
-	.controller('conversionCtrl', function($scope) {
+	.controller('conversionCtrl', ['$scope', '$location', function($scope, $location) {
 
-		$scope.test = 'conversion text';
-		$scope.conversionTypes = conversions;
+		// data
+		$scope.urlParams = $location.search();
+		var conversionMatches = $.grep(conversions, function(conversionObj){
+			return conversionObj.name == $scope.urlParams.type;
+		});
+		$scope.conversionDetails = conversionMatches[0];
 
-	})
+		// page details
+		$scope.title = ' Conversion';
+
+	}])
 
 	.controller('tableCtrl', function($scope) {
 
-		$scope.test = 'table text';
+		// data
 		$scope.conversionTypes = conversions;
+
+		// page details
+		$scope.title = 'Conversion Table';
+		$scope.introText = 'Easily convert values between different units of their type, with an instant response.';
 
 	});
 
 	// data
 	var conversions = [
 		{
-			name: 'weight',
+			name: 'Weight',
 			subTypes: [
 				{
 					name: 'Grams',
@@ -92,7 +104,7 @@
 			]
 		},
 		{
-			name: 'length',
+			name: 'Length',
 			subTypes: [
 				{
 					name: 'Millimetres',
