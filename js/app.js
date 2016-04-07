@@ -83,6 +83,12 @@
 			$scope.conversionRates = conversionFromDetails[0].rates;
 		};
 
+		// fix JS issue with adding decimals
+		// Source: http://stackoverflow.com/a/10474055
+		$scope.correctDecimalValue = function(a, b) {
+			return Math.round((a * b) * 10) / 10;
+		}
+
 	}])
 
 	.controller('tableCtrl', function($scope) {
