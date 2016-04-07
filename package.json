@@ -1,0 +1,28 @@
+{
+  "name": "converter",
+  "version": "1.0.0",
+  "description": "A quick and easy converter for all types of conversions",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scoobster17/converter.git"
+  },
+  "keywords": [
+    "converter",
+    "angular"
+  ],
+  "author": "Phil Gibbins <scoobster17@hotmail.co.uk> (http://www.philgibbins.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scoobster17/converter/issues"
+  },
+  "homepage": "https://github.com/scoobster17/converter#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
+    "gulp-watch": "^4.3.5"
+  }
+}

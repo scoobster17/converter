@@ -7,3 +7,4 @@
 # Third Party Source Config
 bower_components/
 bower.json
+node_modules/
