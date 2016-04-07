@@ -4,12 +4,7 @@
 	<p>{{ test }}</p>
 	<ul>
 		<li ng-repeat="conversionType in conversionTypes">
-			{{ conversionType.name }}
-			<ul>
-				<li ng-repeat="conversionSubType in converstionSubType.subTypes">
-					{{ conversionSubType.name }}
-				</li>
-			</ul>
+			<a href="#/conversion?type={{ conversionType.id }}">{{ conversionType.name }}</a>
 		</li>
 	</ul>
 </section>

@@ -1,0 +1,11 @@
+<section>
+	<a href="#/">Back</a>
+	<h1>{{ conversionId }} Conversion</h1>
+	<p>{{ test }}</p>
+	<form>
+		<label>Please enter a value to convert:</label>
+		<input type="text" ng-model="conversion.value" />
+		<p ng-show="conversion.value">{{ conversion.value * 2 }}</p>
+	</form>
+	<a href="#/">Back</a>
+</section>

@@ -11,6 +11,12 @@
 			controller: 'homeCtrl'
 		})
 
+		// conversion page
+		.when('/conversion', {
+			templateUrl: 'templates/conversion.html',
+			controller: 'conversionCtrl'
+		})
+
 		// conversion table
 		.when('/table', {
 			templateUrl: 'templates/conversionTable.html',
@@ -26,7 +32,21 @@
 
 	.controller('homeCtrl', function($scope) {
 
-		$scope.test = 'hi there phil';
+		$scope.test = 'home text';
+		$scope.conversionTypes = conversions;
+
+	})
+
+	.controller('conversionCtrl', function($scope) {
+
+		$scope.test = 'conversion text';
+		$scope.conversionTypes = conversions;
+
+	})
+
+	.controller('tableCtrl', function($scope) {
+
+		$scope.test = 'table text';
 		$scope.conversionTypes = conversions;
 
 	});
