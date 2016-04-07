@@ -1,6 +1,7 @@
 (function() {
 	angular.module('converter', ['ngRoute'])
 
+	// routing
 	.config(function($routeProvider) {
 
 		$routeProvider
@@ -75,6 +76,13 @@
 		// page details
 		$scope.title = ' Conversion';
 
+		$scope.getConversionRates = function (name) {
+			var conversionFromDetails = $scope.conversionDetails.subTypes.filter(function (subType) {
+				return subType.name === name;
+			});
+			$scope.conversionRates = conversionFromDetails[0].rates;
+		};
+
 	}])
 
 	.controller('tableCtrl', function($scope) {
@@ -95,11 +103,27 @@
 			subTypes: [
 				{
 					name: 'Grams',
-					unit: 'g'
+					unit: 'g',
+					rates: {
+						Kilograms: 0.001,
+						Pounds: 100 // fake
+					}
 				},
 				{
 					name: 'Kilograms',
-					unit: 'kg'
+					unit: 'kg',
+					rates: {
+						Grams: 1000,
+						Pounds: 1000 // fake
+					}
+				},
+				{
+					name: 'Pounds',
+					unit: 'lb',
+					rates: {
+						Grams: 2, // fake
+						Kilograms: 4 // fake
+					}
 				}
 			]
 		},
@@ -108,11 +132,17 @@
 			subTypes: [
 				{
 					name: 'Millimetres',
-					unit: 'mm'
+					unit: 'mm',
+					rates: {
+						Centimetres: '.1'
+					}
 				},
 				{
 					name: 'Centimetres',
-					unit: 'cm'
+					unit: 'cm',
+					rates: {
+						Millimetres: 10
+					}
 				}
 			]
 		}
