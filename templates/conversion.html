@@ -3,7 +3,7 @@
 	<form>
 		<div class="form-group">
 			<label>Convert <strong>from</strong>:</label>
-			<select ng-model="conversion.from" ng-init="conversion.from = '-1'" ng-change="getConversionRates(conversion.from)">
+			<select ng-model="conversion.from" ng-change="clearFormValues('to');getConversionRates(conversion.from)">
 				<option value="-1">Please select</option>
 				<option ng-repeat="subType in conversionDetails.subTypes" value="{{ subType.name }}">
 					{{ subType.name + ' (' + subType.unit + ')' }}
@@ -12,7 +12,7 @@
 		</div>
 		<div class="form-group">
 			<label>Convert <strong>to</strong>:</label>
-			<select ng-model="conversion.to" ng-init="conversion.to = '-1'" ng-disabled="conversion.from === '-1'">
+			<select ng-model="conversion.to" ng-disabled="conversion.from === '-1'" ng-change="clearFormValues('value');">
 				<option value="-1">Please select</option>
 				<option ng-repeat="subType in conversionDetails.subTypes" value="{{ subType.name }}" ng-disabled="conversion.from === subType.name">
 					{{ subType.name + ' (' + subType.unit + ')' }}
@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-group">
 			<label>Please enter a value to convert:</label>
-			<input type="number" ng-model="conversion.value" ng-init="conversion.value = ''" ng-disabled="conversion.to === '-1'" />
+			<input type="number" ng-model="conversion.value" ng-disabled="conversion.to === '-1'" />
 		</div>
 		<p ng-show="conversion.value !== '' && conversion.from !== '-1' && conversion.to !== '-1'">
 			Converting
@@ -33,6 +33,7 @@
 			<strong>{{ correctDecimalValue(conversion.value, conversionRates[conversion.to]) }}</strong>
 			<span ng-bind="conversion.to"></span>
 		</p>
+		<a href="#/" class="btn btn-default">Back</a>
+		<input type="reset" class="btn btn-default" ng-click="event = $event;clearFormValues();" />
 	</form>
-	<a href="#/" class="btn btn-default">Back</a>
 </section>

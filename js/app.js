@@ -66,6 +66,22 @@
 
 	.controller('conversionCtrl', ['$scope', '$location', function($scope, $location) {
 
+		// config
+		var conversionObjDefaultState = {
+			from: '-1',
+			to: '-1',
+			value: ''
+		};
+		$scope.setConversionObjToDefaults = function () {
+			for (var prop in conversionObjDefaultState) {
+				$scope.conversion[prop] = conversionObjDefaultState[prop];
+			}
+		};
+
+		// initialise conversion object
+		$scope.conversion = {};
+		$scope.setConversionObjToDefaults();
+
 		// data
 		$scope.urlParams = $location.search();
 		var conversionMatches = $.grep(conversions, function(conversionObj){
@@ -88,6 +104,25 @@
 		$scope.correctDecimalValue = function(a, b) {
 			return Math.round((a * b) * 10) / 10;
 		}
+
+		$scope.clearFormValues = function (clearFromField) {
+
+			if(event && event.type == 'click') event.preventDefault();
+
+			switch (clearFromField) {
+				case 'value':
+					$scope.conversion['value'] = conversionObjDefaultState['value'];
+					break;
+				case 'to':
+					$scope.conversion['to'] = conversionObjDefaultState['to'];
+					$scope.conversion['value'] = conversionObjDefaultState['value'];
+					break;
+				case 'from':
+				default:
+					$scope.setConversionObjToDefaults();
+					break;
+			}
+		};
 
 	}])
 
