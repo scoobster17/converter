@@ -142,7 +142,7 @@
 
 		// page details
 		$scope.title = 'Conversion Table';
-		$scope.introText = 'Easily convert values between different units of their type, with an instant response.';
+		$scope.introText = 'Here is a quick reference for conversion rates.';
 
 	});
 
@@ -184,7 +184,7 @@
 					name: 'Millimetres',
 					unit: 'mm',
 					rates: {
-						Centimetres: '.1'
+						Centimetres: '0.1'
 					}
 				},
 				{

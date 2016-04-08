@@ -1,18 +1,25 @@
 <h1>{{ title }}</h1>
 <p>{{ introText }}</p>
-<table>
-	<thead>
-		<tr>
-		level 1
-			<!-- <th ng-repeat="conversionType in conversionTypes" colspan="conversionType.subTypes.length">
-				{{ conversionType.name }}
-			</th> -->
-		</tr>
-		<tr>
-		level 2
-			<!-- <th ng-repeat="conversionSubType in conversionSubTypes.subType">
-				{{ conversionSubType.name }}
-			</th> -->
-		</tr>
-	</thead>
-</table>
+<section ng-repeat="type in conversionTypes">
+	<h2>{{ type.name }}</h2>
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th></th>
+				<th ng-repeat="subType in type.subTypes">
+					{{ subType.name }}
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="subTypeVert in type.subTypes">
+				<th>
+					{{ subTypeVert.name }}
+				</th>
+				<td ng-repeat="subTypeHoriz in type.subTypes">
+					{{ subTypeVert.rates[subTypeHoriz.name] || '-' }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
