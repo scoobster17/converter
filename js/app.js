@@ -100,9 +100,18 @@
 		};
 
 		// fix JS issue with adding decimals
-		// Source: http://stackoverflow.com/a/10474055
 		$scope.correctDecimalValue = function(a, b) {
-			return Math.round((a * b) * 10) / 10;
+			// Source: http://stackoverflow.com/a/10474055
+			// return Math.round((a * b) * 10) / 10;
+
+			// above not working so simply going to round to a specified number
+			// if there is a float
+			var result = a * b;
+			if (result % 1 === 0) {
+				return result;
+			} else {
+				return (a * b).toFixed(3);
+			}
 		}
 
 		$scope.clearFormValues = function (clearFromField) {
