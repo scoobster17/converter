@@ -1,0 +1,53 @@
+.conversionPage {
+	h1 {
+		margin: 0 0 20px;
+		text-align:center;
+	}
+	.form-group {
+		padding:20px;
+		text-align:center;
+		label {
+			font-size:1.8em;
+		}
+		input {
+			display: block;
+			margin:0 auto;
+			padding:9px;
+			width: 50%;
+		}
+		select {
+			margin-left:10px;
+			position:relative;
+			top:-3px;
+		}
+	}
+	.active {
+		label {
+			color: #b33434;
+		}
+		input {
+			background-color:#ffc2c2;
+			border: 1px solid #b33434;
+		}
+		select {
+			background-color:#ffc2c2;
+			border: 1px solid #b33434;
+		}
+	}
+	.well {
+		min-height:121px;
+		padding-top:15px;
+		text-align:center;
+		strong {
+			font-size:60px;
+		}
+	}
+	.actions {
+		border-top:1px solid #ccc;
+		padding-top:30px;
+		text-align:center;
+	}
+	.summary {
+		text-align:center;
+	}
+}

@@ -5,14 +5,14 @@ Make conversions easily with instant results
 
 Units that can be converted:
 
-	- Distance
-		- Miles
-		- Kilometres
+- Distance
+	- Miles
+	- Kilometres
 
-	- Weight
-		- Grams
-		- Kilograms
-		- Pounds
+- Weight
+	- Grams
+	- Kilograms
+	- Pounds
 
 Installation
 ------------

@@ -83,6 +83,7 @@
 				$scope.conversion[prop] = conversionObjDefaultState[prop];
 			}
 		};
+		$scope.step = 1;
 
 		// initialise conversion object
 		$scope.conversion = {};
@@ -114,7 +115,7 @@
 			} else {
 				return (a * b).toFixed(3);
 			}
-		}
+		};
 
 		$scope.clearFormValues = function (clearFromField) {
 
@@ -123,14 +124,17 @@
 			switch (clearFromField) {
 				case 'value':
 					$scope.conversion['value'] = conversionObjDefaultState['value'];
+					$scope.step = 3;
 					break;
 				case 'to':
 					$scope.conversion['to'] = conversionObjDefaultState['to'];
 					$scope.conversion['value'] = conversionObjDefaultState['value'];
+					$scope.step = 2;
 					break;
 				case 'from':
 				default:
 					$scope.setConversionObjToDefaults();
+					$scope.step = 1;
 					break;
 			}
 		};

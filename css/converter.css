@@ -5820,8 +5820,21 @@ button.close {
 main {
   overflow: hidden; }
 
+h1 {
+  text-decoration: underline; }
+
+.textLink {
+  text-decoration: underline; }
+  .textLink:hover {
+    text-decoration: none; }
+
 label {
   font-weight: normal; }
+
+select {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkI5N0ZGRTVGN0Y4MTFFNTgzOUI5Q0I4NThFRDI0RkMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkI5N0ZGRTZGN0Y4MTFFNTgzOUI5Q0I4NThFRDI0RkMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjk3RkZFM0Y3RjgxMUU1ODM5QjlDQjg1OEVEMjRGQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjk3RkZFNEY3RjgxMUU1ODM5QjlDQjg1OEVEMjRGQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtHR6uoAAAAqSURBVHjaYmBgYGgA4v84MEgODBrwSWJTBJdkRlJwAIgZgfggsgKAAAMAXgAQ+gJ2u7gAAAAASUVORK5CYII=") no-repeat 90% 50%;
+  padding: 9px 29px 9px 9px;
+  -webkit-appearance: none; }
 
 th,
 td {
@@ -5831,3 +5844,48 @@ td {
   border-top: 1px solid #ccc;
   margin: 20px 0 0;
   padding: 15px; }
+
+.conversionPage h1 {
+  margin: 0 0 20px;
+  text-align: center; }
+
+.conversionPage .form-group {
+  padding: 20px;
+  text-align: center; }
+  .conversionPage .form-group label {
+    font-size: 1.8em; }
+  .conversionPage .form-group input {
+    display: block;
+    margin: 0 auto;
+    padding: 9px;
+    width: 50%; }
+  .conversionPage .form-group select {
+    margin-left: 10px;
+    position: relative;
+    top: -3px; }
+
+.conversionPage .active label {
+  color: #b33434; }
+
+.conversionPage .active input {
+  background-color: #ffc2c2;
+  border: 1px solid #b33434; }
+
+.conversionPage .active select {
+  background-color: #ffc2c2;
+  border: 1px solid #b33434; }
+
+.conversionPage .well {
+  min-height: 121px;
+  padding-top: 15px;
+  text-align: center; }
+  .conversionPage .well strong {
+    font-size: 60px; }
+
+.conversionPage .actions {
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+  text-align: center; }
+
+.conversionPage .summary {
+  text-align: center; }

@@ -1,8 +1,14 @@
+// less setup
 @import 'global/_vars';
 
+// third party styles
 @import '../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap';
 
+// global styles
 @import 'global/_common';
 @import 'global/_forms';
 @import 'global/_tables';
 @import 'global/_footer';
+
+// page styles
+@import 'pages/_conversion';

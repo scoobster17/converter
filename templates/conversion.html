@@ -1,7 +1,7 @@
-<section>
+<section class="conversionPage">
 	<h1>{{conversionDetails[0].name + title}}</h1>
 	<form>
-		<div class="form-group">
+		<div class="form-group col-md-6" ng-class="{active: step == 1}">
 			<label>Convert <strong>from</strong>:</label>
 			<select ng-model="conversion.from" ng-change="clearFormValues('to');getConversionRates(conversion.from)">
 				<option value="-1">Please select</option>
@@ -10,30 +10,53 @@
 				</option>
 			</select>
 		</div>
-		<div class="form-group">
+		<div class="form-group col-md-6" ng-class="{active: step == 2}">
 			<label>Convert <strong>to</strong>:</label>
-			<select ng-model="conversion.to" ng-disabled="conversion.from === '-1'" ng-change="clearFormValues('value');">
+			<select class="dropdown" ng-model="conversion.to" ng-disabled="conversion.from === '-1'" ng-change="clearFormValues('value');">
 				<option value="-1">Please select</option>
 				<option ng-repeat="subType in conversionDetails[0].subTypes" value="{{ subType.name }}" ng-disabled="conversion.from === subType.name">
 					{{ subType.name + ' (' + subType.unit + ')' }}
 				</option>
 			</select>
 		</div>
-		<div class="form-group">
+		<div class="form-group col-md-6" ng-class="{active: step == 3}">
 			<label>Please enter a value to convert:</label>
-			<input type="number" ng-model="conversion.value" ng-disabled="conversion.to === '-1'" />
+			<input type="number" ng-model="conversion.value" ng-disabled="conversion.to === '-1'" ng-keydown="step = 4" />
 		</div>
-		<p ng-show="conversion.value !== '' && conversion.from !== '-1' && conversion.to !== '-1'">
-			Converting
-			<strong ng-bind="conversion.value"></strong>
-			<strong ng-bind="conversion.from"></strong>
-			to
-			<strong ng-bind="conversion.to"></strong>
-			=
-			<strong>{{ correctDecimalValue(conversion.value, conversionRates[conversion.to]) }}</strong>
-			<span ng-bind="conversion.to"></span>
+		<p class="col-md-6 well">
+			<strong ng-show="conversion.value !== '' && conversion.from !== '-1' && conversion.to !== '-1'">
+				{{ correctDecimalValue(conversion.value, conversionRates[conversion.to]) + conversion.to }}
+			</strong>
 		</p>
-		<a href="#/" class="btn btn-default">Back</a>
-		<input type="reset" class="btn btn-default" ng-click="event = $event;clearFormValues();" />
+		<p class="summary">
+			<span ng-show="conversion.value !== '' && conversion.from !== '-1' && conversion.to !== '-1'">
+				Converting
+				<strong ng-bind="conversion.value">
+					<!-- Conversion value -->
+				</strong>
+				<strong ng-bind="conversion.from">
+					<!-- Conversion from unit -->
+				</strong>
+				to
+				<strong ng-bind="conversion.to">
+					<!-- Conversion to unit -->
+				</strong>
+				=
+				<strong>
+					{{ correctDecimalValue(conversion.value, conversionRates[conversion.to]) }}
+				</strong>
+				<span ng-bind="conversion.to">
+					<!-- Conversion to unit -->
+				</span>
+			</span>
+		</p>
+		<ul class="col-md-12 actions list-unstyled list-inline">
+			<li>
+				<a href="#/" class="btn btn-default">Back</a>
+			</li>
+			<li>
+				<input type="reset" class="btn btn-default" ng-click="event = $event;clearFormValues();" />
+			</li>
+		</ul>
 	</form>
 </section>
