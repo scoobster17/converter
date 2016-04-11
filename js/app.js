@@ -1,5 +1,5 @@
 (function() {
-	angular.module('converter', ['ngRoute'])
+	angular.module('converter', ['ngRoute', 'ngResource'])
 
 	// routing
 	.config(function($routeProvider) {
@@ -13,7 +13,7 @@
 		})
 
 		// conversion page
-		.when('/conversion', {
+		.when('/conversion/:type', {
 			templateUrl: 'templates/conversion.html',
 			controller: 'conversionCtrl'
 		})
@@ -31,10 +31,16 @@
 
 	})
 
-	.controller('homeCtrl', function($scope) {
+	.factory('ConversionsFactory', ['$resource', function($resource) {
+		return $resource('http://localhost:4434/conversion/:type', {}, {
+			get: {isArray: true}
+		});
+	}])
+
+	.controller('homeCtrl', ['$scope', 'ConversionsFactory', function($scope, ConversionsFactory) {
 
 		// data
-		$scope.conversionTypes = conversions;
+		$scope.conversionTypes = ConversionsFactory.query();
 		$scope.usage = {
 			heading: 'Usage',
 			detail: 'No page refreshes, no waiting around. Simply follow these four steps:',
@@ -62,9 +68,9 @@
 		$scope.title = 'Converter';
 		$scope.introText = 'Easily convert values between different units of their type, with an instant response.';
 
-	})
+	}])
 
-	.controller('conversionCtrl', ['$scope', '$location', function($scope, $location) {
+	.controller('conversionCtrl', ['$scope', '$location', '$routeParams', 'ConversionsFactory', function($scope, $location, $routeParams, ConversionsFactory) {
 
 		// config
 		var conversionObjDefaultState = {
@@ -83,17 +89,13 @@
 		$scope.setConversionObjToDefaults();
 
 		// data
-		$scope.urlParams = $location.search();
-		var conversionMatches = $.grep(conversions, function(conversionObj){
-			return conversionObj.name == $scope.urlParams.type;
-		});
-		$scope.conversionDetails = conversionMatches[0];
+		$scope.conversionDetails = ConversionsFactory.get({type: $routeParams.type});
 
 		// page details
 		$scope.title = ' Conversion';
 
 		$scope.getConversionRates = function (name) {
-			var conversionFromDetails = $scope.conversionDetails.subTypes.filter(function (subType) {
+			var conversionFromDetails = $scope.conversionDetails[0].subTypes.filter(function (subType) {
 				return subType.name === name;
 			});
 			$scope.conversionRates = conversionFromDetails[0].rates;
@@ -135,67 +137,15 @@
 
 	}])
 
-	.controller('tableCtrl', function($scope) {
+	.controller('tableCtrl', ['$scope', 'ConversionsFactory', function($scope, ConversionsFactory) {
 
 		// data
-		$scope.conversionTypes = conversions;
+		$scope.conversionTypes = ConversionsFactory.query();
 
 		// page details
 		$scope.title = 'Conversion Table';
 		$scope.introText = 'Here is a quick reference for conversion rates.';
 
-	});
-
-	// data
-	var conversions = [
-		{
-			name: 'Weight',
-			subTypes: [
-				{
-					name: 'Grams',
-					unit: 'g',
-					rates: {
-						Kilograms: 0.001,
-						Pounds: 100 // fake
-					}
-				},
-				{
-					name: 'Kilograms',
-					unit: 'kg',
-					rates: {
-						Grams: 1000,
-						Pounds: 1000 // fake
-					}
-				},
-				{
-					name: 'Pounds',
-					unit: 'lb',
-					rates: {
-						Grams: 2, // fake
-						Kilograms: 4 // fake
-					}
-				}
-			]
-		},
-		{
-			name: 'Length',
-			subTypes: [
-				{
-					name: 'Millimetres',
-					unit: 'mm',
-					rates: {
-						Centimetres: '0.1'
-					}
-				},
-				{
-					name: 'Centimetres',
-					unit: 'cm',
-					rates: {
-						Millimetres: 10
-					}
-				}
-			]
-		}
-	];
+	}]);
 
 })();

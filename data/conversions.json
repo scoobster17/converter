@@ -1,0 +1,50 @@
+[
+	{
+		"name": "Weight",
+		"subTypes": [
+			{
+				"name": "Grams",
+				"unit": "g",
+				"rates": {
+					"Kilograms": 0.001,
+					"Pounds": 100
+				}
+			},
+			{
+				"name": "Kilograms",
+				"unit": "kg",
+				"rates": {
+					"Grams": 1000,
+					"Pounds": 1000
+				}
+			},
+			{
+				"name": "Pounds",
+				"unit": "lb",
+				"rates": {
+					"Grams": 2,
+					"Kilograms": 4
+				}
+			}
+		]
+	},
+	{
+		"name": "Length",
+		"subTypes": [
+			{
+				"name": "Millimetres",
+				"unit": "mm",
+				"rates": {
+					"Centimetres": 0.1
+				}
+			},
+			{
+				"name": "Centimetres",
+				"unit": "cm",
+				"rates": {
+					"Millimetres": 10
+				}
+			}
+		]
+	}
+]

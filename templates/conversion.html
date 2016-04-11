@@ -1,11 +1,11 @@
 <section>
-	<h1>{{conversionDetails.name + title}}</h1>
+	<h1>{{conversionDetails[0].name + title}}</h1>
 	<form>
 		<div class="form-group">
 			<label>Convert <strong>from</strong>:</label>
 			<select ng-model="conversion.from" ng-change="clearFormValues('to');getConversionRates(conversion.from)">
 				<option value="-1">Please select</option>
-				<option ng-repeat="subType in conversionDetails.subTypes" value="{{ subType.name }}">
+				<option ng-repeat="subType in conversionDetails[0].subTypes" value="{{ subType.name }}">
 					{{ subType.name + ' (' + subType.unit + ')' }}
 				</option>
 			</select>
@@ -14,7 +14,7 @@
 			<label>Convert <strong>to</strong>:</label>
 			<select ng-model="conversion.to" ng-disabled="conversion.from === '-1'" ng-change="clearFormValues('value');">
 				<option value="-1">Please select</option>
-				<option ng-repeat="subType in conversionDetails.subTypes" value="{{ subType.name }}" ng-disabled="conversion.from === subType.name">
+				<option ng-repeat="subType in conversionDetails[0].subTypes" value="{{ subType.name }}" ng-disabled="conversion.from === subType.name">
 					{{ subType.name + ' (' + subType.unit + ')' }}
 				</option>
 			</select>
