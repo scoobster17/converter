@@ -23,15 +23,15 @@
 	}
 	.active {
 		label {
-			color: #b33434;
+			color: $activeTextColour;
 		}
 		input {
-			background-color:#ffc2c2;
-			border: 1px solid #b33434;
+			background-color: $activeBackgroundColour;
+			border: 1px solid $activeBorderColour;
 		}
 		select {
-			background-color:#ffc2c2;
-			border: 1px solid #b33434;
+			background-color: $activeBackgroundColour;
+			border: 1px solid $activeBorderColour;
 		}
 	}
 	.well {
