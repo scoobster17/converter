@@ -47,3 +47,15 @@ root directory and type
 You can then access the site at:
 
 `http://localhost:4434`
+
+Disclaimer
+----------
+
+Unit rates have been sourced from [unit-conversion.info](http://www.unit-conversion.info/).
+They may or may not be correct, and are not comprehensive.
+
+This tool has been created to attempt using Angular and should not be used as a
+proper converter. This is because due to JavaScript limitations that have not
+been properly fixed, for example the conversion of floating point numbers is not
+accurate and as a temporary workaround solution the number has been rounded to
+three decimal places.

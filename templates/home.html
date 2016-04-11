@@ -20,13 +20,13 @@
 		</div>
 	</div>
 </section>
-<section class="col-md-8">
+<section class="col-md-8 homePage">
 	<div class="panel panel-default">
 		<header class="panel-heading">
 			<h2 class="panel-title">Please select your conversion below:</h2>
 		</header>
 		<div class="panel-body">
-			<ul>
+			<ul class="conversionTypes">
 				<li ng-repeat="conversionType in conversionTypes">
 					<a class="textLink" href="#/conversion/{{ conversionType.name }}">{{ conversionType.name + ' conversion' }}</a>
 				</li>

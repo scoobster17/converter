@@ -5845,12 +5845,17 @@ input:disabled {
 
 th,
 td {
-  text-align: center; }
+  text-align: center;
+  width: 25%; }
 
 .globalFooter {
   border-top: 1px solid #ccc;
   margin: 20px 0 0;
   padding: 15px; }
+
+.homePage .conversionTypes li {
+  font-size: 1.8em;
+  margin: 0 0 10px; }
 
 .conversionPage h1 {
   margin: 0 0 20px;

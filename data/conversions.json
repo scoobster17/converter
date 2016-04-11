@@ -1,5 +1,220 @@
 [
 	{
+		"name": "Length",
+		"subTypes": [
+			{
+				"name": "Millimetres",
+				"unit": "mm",
+				"rates": {
+					"Centimetres": 0.1,
+					"Inches": 0.03937007874016
+				}
+			},
+			{
+				"name": "Centimetres",
+				"unit": "cm",
+				"rates": {
+					"Millimetres": 10,
+					"Inches": 0.3937007874016
+				}
+			},
+			{
+				"name": "Inches",
+				"unit": "\"",
+				"rates": {
+					"Millimetres": 25.4,
+					"Centimetres": 2.54
+				}
+			}
+		]
+	},
+	{
+		"name": "Power",
+		"subTypes": [
+			{
+				"name": "Watts",
+				"unit": "W",
+				"rates": {
+					"Megawatts": 0.000001,
+					"GigaWatts": 1e-9
+				}
+			},
+			{
+				"name": "Megawatts",
+				"unit": "MW",
+				"rates": {
+					"Watts": 1000000,
+					"GigaWatts": 0.001
+				}
+			},
+			{
+				"name": "Gigawatts",
+				"unit": "GW",
+				"rates": {
+					"Watts": 1000000000,
+					"Megawatts": 1000
+				}
+			}
+		]
+	},
+	{
+		"name": "Speed",
+		"subTypes": [
+			{
+				"name": "Kilometres per hour",
+				"unit": "km/h",
+				"rates": {
+					"Miles per hour": 0.6213711922373
+				}
+			},
+			{
+				"name": "Miles per hour",
+				"unit": "mph",
+				"rates": {
+					"Kilometres per hour": 1.609344
+				}
+			}
+		]
+	},
+	{
+		"name": "Time",
+		"subTypes": [
+			{
+				"name": "Milliseconds",
+				"unit": "ms",
+				"rates": {
+					"Seconds": 0.001,
+					"Minutes": 0.00001666666666667,
+					"Hours": 2.777777777778E-7,
+					"Days": 1.157407407407E-8,
+					"Weeks": 1.653439153439E-9,
+					"Months": 3.802537330419E-10,
+					"Years": 3.170979198377E-11
+				}
+			},
+			{
+				"name": "Seconds",
+				"unit": "s",
+				"rates": {
+					"Milliseconds": 1000,
+					"Minutes": 0.01666666666667,
+					"Hours": 0.0002777777777778,
+					"Days": 0.00001157407407407,
+					"Weeks": 0.000001653439153439,
+					"Months": 3.802537330419E-7,
+					"Years": 3.170979198377E-8
+				}
+			},
+			{
+				"name": "Minutes",
+				"unit": "m",
+				"rates": {
+					"Milliseconds": 60000,
+					"Seconds": 60,
+					"Hours": 0.01666666666667,
+					"Days": 0.0006944444444444,
+					"Weeks": 0.00009920634920635,
+					"Months": 0.00002281522398251,
+					"Years": 0.000001902587519026
+				}
+			},
+			{
+				"name": "Hours",
+				"unit": "h",
+				"rates": {
+					"Milliseconds": 3600000,
+					"Seconds": 3600,
+					"Minutes": 60,
+					"Days": 0.04166666666667,
+					"Weeks": 0.005952380952381,
+					"Months": 0.001368913438951,
+					"Years": 0.0001141552511416
+				}
+			},
+			{
+				"name": "Days",
+				"unit": "d",
+				"rates": {
+					"Milliseconds": 86400000,
+					"Seconds": 86400,
+					"Minutes": 1440,
+					"Hours": 24,
+					"Weeks": 0.1428571428571,
+					"Months": 0.03285392253482,
+					"Years": 0.002739726027397
+				}
+			},
+			{
+				"name": "Weeks",
+				"unit": "w",
+				"rates": {
+					"Milliseconds": 604800000,
+					"Seconds": 604800,
+					"Minutes": 10080,
+					"Hours": 168,
+					"Days": 7,
+					"Months": 0.2299774577438,
+					"Years": 0.01917808219178
+				}
+			},
+			{
+				"name": "Months",
+				"unit": "m",
+				"rates": {
+					"Milliseconds": 2629822965.84,
+					"Seconds": 2629822.96584,
+					"Minutes": 43830.382764,
+					"Hours": 730.5063794,
+					"Days": 30.43776580833,
+					"Weeks": 4.348252258333,
+					"Years": 0.08339113920091
+				}
+			},
+			{
+				"name": "Years",
+				"unit": "y",
+				"rates": {
+					"Milliseconds": 31536000000,
+					"Seconds": 31536000,
+					"Minutes": 525600,
+					"Hours": 8760,
+					"Days": 365,
+					"Weeks": 52.14285714286,
+					"Months": 11.99168172521
+				}
+			}
+		]
+	},
+	{
+		"name": "Volume",
+		"subTypes": [
+			{
+				"name": "Millilitres",
+				"unit": "ml",
+				"rates": {
+					"Centilitres": 0.1,
+					"Litres": 0.001
+				}
+			},
+			{
+				"name": "Centilitres",
+				"unit": "cl",
+				"rates": {
+					"Millilitres": 10,
+					"Litres": 0.01
+				}
+			},
+			{
+				"name": "Litres",
+				"unit": "l",
+				"rates": {
+					"Millilitres": 1000,
+					"Centilitres": 100
+				}
+			}
+		]
+	},
+	{
 		"name": "Weight",
 		"subTypes": [
 			{
@@ -7,7 +222,7 @@
 				"unit": "g",
 				"rates": {
 					"Kilograms": 0.001,
-					"Pounds": 100
+					"Pounds": 0.002204622621849
 				}
 			},
 			{
@@ -15,34 +230,15 @@
 				"unit": "kg",
 				"rates": {
 					"Grams": 1000,
-					"Pounds": 1000
+					"Pounds": 2.204622621849
 				}
 			},
 			{
 				"name": "Pounds",
 				"unit": "lb",
 				"rates": {
-					"Grams": 2,
-					"Kilograms": 4
-				}
-			}
-		]
-	},
-	{
-		"name": "Length",
-		"subTypes": [
-			{
-				"name": "Millimetres",
-				"unit": "mm",
-				"rates": {
-					"Centimetres": 0.1
-				}
-			},
-			{
-				"name": "Centimetres",
-				"unit": "cm",
-				"rates": {
-					"Millimetres": 10
+					"Grams": 453.59237,
+					"Kilograms": 0.45359237
 				}
 			}
 		]
